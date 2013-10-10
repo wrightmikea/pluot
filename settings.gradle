@@ -1,0 +1,5 @@
+rootProject.name = 'scalablelabs-pluot'
+include 'api', 'core', 'repo', 'app'
+
+rootProject.children.each { it.name = 'scalablelabs-pluot-' + it.name; }
+

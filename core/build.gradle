@@ -1,0 +1,8 @@
+description = 'Scalable Labs Commons - Core shared library'
+
+dependencies {
+    compile project(':scalablelabs-pluot-api')
+}
+
+
+

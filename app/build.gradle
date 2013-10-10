@@ -1,0 +1,14 @@
+description = 'Scalable Labs Commons -  App shared library'
+
+dependencies {
+    compile project(':scalablelabs-pluot-api')
+    compile project(':scalablelabs-pluot-core')
+    compile project(':scalablelabs-pluot-repo')
+    compile group: 'com.bazaarvoice.dropwizard', name:'dropwizard-configurable-assets-bundle', version:'0.1.11'
+    compile group: 'com.yammer.dropwizard', name: 'dropwizard-core', version:'0.6.2'
+    compile group: 'com.yammer.metrics', name: 'metrics-graphite', version:'2.2.0'
+    compile group: 'joda-time', name: 'joda-time', version: '1.6.1'
+}
+
+
+
