@@ -48,8 +48,7 @@ public class Releases implements Collection<Release> {
   public void update(int id, Release update) {
     for (Release release : _releases) {
       if (release.getKey() == id) {
-        release.setFamily(update.getFamily());
-        release.setProduct(update.getProduct());
+        release.setName(update.getName());
         release.setRelease(update.getRelease());
         release.setSource(update.getSource());
       }

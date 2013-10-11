@@ -1,8 +1,6 @@
 package com.scalablelabs.pluot.core.domain;
 
 
-import com.scalablelabs.pluot.api.attr.Family;
-import com.scalablelabs.pluot.api.attr.Product;
 import com.scalablelabs.pluot.api.entity.AbstractEntity;
 import com.scalablelabs.pluot.api.entity.Entity;
 
@@ -11,24 +9,18 @@ import com.scalablelabs.pluot.api.entity.Entity;
  */
 public class Release extends AbstractEntity implements Entity {
 
-  private Family _family;
-  private Product _product;
+  private String _name;
   private String _release;
   private String _source;
 
-  public Release(Product product, Family family, String release, String source) {
-    _product = product;
-    _family = family;
+  public Release(String name, String release, String source) {
+    _name = name;
     _release = release;
     _source = source;
   }
 
-  public Product getProduct() {
-    return _product;
-  }
-
-  public Family getFamily() {
-    return _family;
+  public String getName() {
+    return _name;
   }
 
   public String getRelease() {
@@ -39,12 +31,8 @@ public class Release extends AbstractEntity implements Entity {
     return _source;
   }
 
-  public void setProduct(Product product) {
-    _product = product;
-  }
-
-  public void setFamily(Family family) {
-    _family = family;
+  public void setName(String name) {
+    _name = name;
   }
 
   public void setRelease(String release) {

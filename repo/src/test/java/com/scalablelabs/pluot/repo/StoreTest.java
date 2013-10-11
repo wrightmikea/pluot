@@ -1,7 +1,5 @@
 package com.scalablelabs.pluot.repo;
 
-import com.scalablelabs.pluot.repo.EntityImpl;
-import com.scalablelabs.pluot.repo.Store;
 import org.junit.Test;
 
 import java.util.List;

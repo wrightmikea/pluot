@@ -1,7 +1,5 @@
 package com.scalablelabs.pluot.core.domain;
 
-import com.scalablelabs.pluot.api.attr.Family;
-import com.scalablelabs.pluot.api.attr.Product;
 import com.scalablelabs.pluot.core.domain.Release;
 import com.scalablelabs.pluot.core.domain.Releases;
 import org.junit.After;
@@ -31,17 +29,16 @@ public class ReleaseTest {
 
   @Test
   public void testCreateRelease() throws Exception {
-    Release release = new Release(Product.PC, Family.DIAMOND, "PC 7.0.5", "[placeholder]");
+    Release release = new Release("Foo", "Foo 1.0", "[placeholder]");
 
     assertThat(release).isNotNull();
-    assertThat(release.getRelease()).isEqualTo("PC 7.0.5");
-    assertThat(release.getProduct()).isEqualTo(Product.PC);
-    assertThat(release.getFamily()).isEqualTo(Family.DIAMOND);
+    assertThat(release.getRelease()).isEqualTo("Foo 1.0");
+    assertThat(release.getName()).isEqualTo("Foo");
   }
 
   @Test
   public void testAddRelease() throws Exception {
-    Release release = new Release(Product.PC, Family.DIAMOND, "PC 7.0.5", "[placeholder]");
+    Release release = new Release("Bar", "Bar 2.0.1", "[placeholder]");
     _releases.add(release);
 
     assertThat(release).isNotNull();
@@ -58,35 +55,33 @@ public class ReleaseTest {
 
   @Test
   public void testGetRelease() throws Exception {
-    Release release = new Release(Product.PC, Family.DIAMOND, "PC 7.0.5", "[placeholder]");
+    Release release = new Release("Foo","Foo 1.0", "[placeholder]");
     _releases.add(release);
 
     assertThat(_releases).isNotNull();
     assertThat(_releases.getAll().size()).isEqualTo(1);
-    assertThat(_releases.get(release.getKey()).getRelease()).isEqualTo("PC 7.0.5");
-    assertThat(_releases.get(release.getKey()).getProduct()).isEqualTo(Product.PC);
-    assertThat(_releases.get(release.getKey()).getFamily()).isEqualTo(Family.DIAMOND);
+    assertThat(_releases.get(release.getKey()).getRelease()).isEqualTo("Foo 1.0");
+    assertThat(_releases.get(release.getKey()).getName()).isEqualTo("Foo");
   }
 
   @Test
   public void testGetNewRelease() throws Exception {
-    Release release1 = new Release(Product.PC, Family.DIAMOND, "PC 7.0.5", "[placeholder]");
+    Release release1 = new Release("Foo", "Foo 1.0", "[placeholder]");
     release1.setKey(1);
     _releases.add(release1);
 
-    Release release2 = new Release(Product.CC, Family.EMERALD, "CC 8.0.5", "[placeholder]");
+    Release release2 = new Release("Bar", "Bar 2.0", "[placeholder]");
     release2.setKey(2);
     _releases.add(release2);
 
     assertThat(_releases).isNotNull();
     assertThat(_releases.getAll().size()).isEqualTo(2);
-    assertThat(_releases.get(release2.getKey()).getRelease()).isEqualTo("CC 8.0.5");
-    assertThat(_releases.get(release2.getKey()).getProduct()).isEqualTo(Product.CC);
-    assertThat(_releases.get(release2.getKey()).getFamily()).isEqualTo(Family.EMERALD);}
+    assertThat(_releases.get(release2.getKey()).getRelease()).isEqualTo("Bar 2.0");
+    assertThat(_releases.get(release2.getKey()).getName()).isEqualTo("Bar");}
 
   @Test
   public void testDeleteRelease() throws Exception {
-    Release release = new Release(Product.PC, Family.DIAMOND, "PC 7.0.5", "[placeholder]");
+    Release release = new Release("Foo", "Foo 1.0", "[placeholder]");
     release.setKey(1);
     _releases.add(release);
 
@@ -100,19 +95,18 @@ public class ReleaseTest {
 
   @Test
   public void testUpdateRelease() throws Exception {
-    Release release = new Release(Product.PC, Family.DIAMOND, "PC 7.0.5", "[placeholder]");
+    Release release = new Release("Foo", "Foo 1.0", "[placeholder]");
     release.setKey(1);
     _releases.add(release);
 
     assertThat(_releases).isNotNull();
     assertThat(_releases.getAll().size()).isEqualTo(1);
 
-    Release update = new Release(Product.CC, Family.EMERALD, "CC 8.0.1", "[placeholder2]");
+    Release update = new Release("Bar", "Bar 2.0", "[placeholder2]");
     _releases.update(release.getKey(), update);
 
-    assertThat(_releases.get(release.getKey()).getRelease()).isEqualTo("CC 8.0.1");
-    assertThat(_releases.get(release.getKey()).getFamily()).isEqualTo(Family.EMERALD);
-    assertThat(_releases.get(release.getKey()).getProduct()).isEqualTo(Product.CC);
+    assertThat(_releases.get(release.getKey()).getRelease()).isEqualTo("Bar 2.0");
+    assertThat(_releases.get(release.getKey()).getName()).isEqualTo("Bar");
     assertThat(_releases.get(release.getKey()).getSource()).isEqualTo("[placeholder2]");
   }
 }
