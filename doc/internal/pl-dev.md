@@ -20,8 +20,8 @@ github/wrightmikea/pluot/doc/internal/pl-dev.md
 ## one time development setup
 > 1. install JDK 1.7
 > 2. install gradle 1.6
-> 3. set environment variables (see pluot/doc/internal/pluot.cmd or pluot.sh examples)
-> 4. use an IDE (preferably IntelliJ IDEA 12.1.3 or newer) to import the gradle project. The project uses "Diamonds" syntax.
+> 3. set environment variables (see pluot/doc/internal/pluot.sh or pluot.cmd examples)
+> 4. use an IDE (preferably IntelliJ IDEA 12.1.3 or newer) to import the gradle project. The project uses Language Level 7 (e.g. "Diamonds" syntax).
 > 5. optionally install the IDEA markdown plug-in
 
 ## building, running unit tests
@@ -41,7 +41,7 @@ github/wrightmikea/pluot/doc/internal/pl-dev.md
 > See the sample urls in the root build.gradle file comments.
 
 ## run downstream tests
-> see the doc/internal/app-dev.md in each dependent project (e.g., dashboard and wheresmytrain)
+> see dashboard/doc/internal/pl-dev.md or wheresmytrain/doc/internal/app-dev.md
 
 
 ----
